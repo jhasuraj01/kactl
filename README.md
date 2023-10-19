@@ -13,6 +13,42 @@ Due to space issues, we also exclude algorithms that are very common/simple (e.g
 
 If you feel that something is missing, could be cleaned up, or notice a bug, please file an issue or [send a pull request](https://help.github.com/articles/fork-a-repo/)!
 
+## Installation
+
+You can install LaTeX on your system using the following commands:
+
+For Ubuntu:
+```bash
+sudo apt-get update
+sudo apt-get install texlive-full
+```
+
+For CentOS:
+```bash
+sudo yum install texlive texlive-latex
+```
+
+For Fedora:
+```bash
+sudo dnf install texlive texlive-latex
+```
+
+After installation, you can verify it by running `pdflatex --version` in your terminal. If LaTeX is correctly installed, this will output the version of your LaTeX distribution.
+
+If you have already installed LaTeX and still see this error, it's possible that the installation path of `pdflatex` is not included in your system's PATH. You can add it to your PATH with the following command, replacing `/path/to/pdflatex` with the actual path to the `pdflatex` executable:
+
+```bash
+export PATH=$PATH:/path/to/pdflatex
+```
+
+You can find the path to `pdflatex` by using the `find` command:
+
+```bash
+find / -name pdflatex 2>/dev/null
+```
+
+This will search your entire filesystem for a file named `pdflatex` and print its location. You can then use this location in the `export` command above to add it to your PATH. Remember to add this line to your `.bashrc` or `.bash_profile` to make this change permanent.
+
 ## Customizing KACTL
 
 While KACTL is usable as is, it's also easy to modify if you want to create a personalized copy.
